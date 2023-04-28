@@ -1,0 +1,29 @@
+REACT.JS
+
+node_modules
+->3rd party libraries like react & other tools are installed
+
+public
+->images & videos
+
+assets 
+->app component
+
+filename.tsx(tsx for react components)
+
+Class component :
+
+-> A class component must include the extends React.Component statement.
+-> The component also requires a render() method, this method returns HTML.
+
+class Car extends React.Component {
+  render() {
+    return <h2>Hi, I am a Car!</h2>;
+  }
+}
+
+Functional component :
+
+function Car() {
+  return <h2>Hi, I am a Car!</h2>;
+}S

@@ -1,0 +1,136 @@
+DATABASE: place where our data is stored
+          we can store, manipulate, retrive data
+TYPES OF DATABASE:
+1.RDBMS:
+->Data is arranged in table format (rows & columns)
+->eg: MySQL,ORACLE, Microsoft server sql
+2.ORDMS:
+->data is stored in object format
+->eg: PostgreSql - most advanced open source
+3.Graph database
+4.Mapping database
+
+=>create database databasename(test);
+=>psql - shows version
+=>\h - help with sql commands
+=>\? - help with psql commands
+=>\q - quit
+=>\l - list of databases
+=>\d - to see contents/relations in tables(\d tablename)
+=>\dt - to see just tables in database
+=>\! - clear screem
+=>Cntrl + L -clear the screen
+
+(1.)Connection with databases:
+1. psql --help
+   u will see inforamtion (connection option)
+
+2. psql -h hostname(localhost) -p portno(5432) -U username(amigoscode) databasename(test)
+                          (OR)
+              \c databasename(test)
+--------------------------------------------------
+(2.)Create Table:
+create table tablename(
+columnname datatype(constraints)
+)
+
+eg:
+CREATE TABLE person(
+name VARCHAR(50) NOT NULL,
+id INT NOT NULL PRIMARY KEY,
+dob DATE NOT NULL,
+email VARCHAR(50),
+);
+-------------------------------------------------
+(3.)INSERTIONS OF RECORDS IN THE TABLE:
+Eg:
+INSERT INTO person(
+name,
+id,
+dob,
+email,
+);
+VALUES('Annie',101,'2001-11-8','annie@gmail.com');
+---------------------------------------------------
+(4.)SORTNG IN ASCENDING/DESCENDING ORDER:
+SELECT * FROM person ORDER BY name ASC(or) DESC;
+-------------------------------------------------
+(5.)SELECT DISTINCT country FROM person ORDER BY country DESC;
+-------------------------------------------------------
+(6.)SELECT * FROM PERSON WHERE gender='Male' AND (country='China' OR country='Poland');
+-------------------------------------------
+(7.)SELECT * FROM person LIMIT 5;
+// prints 1 to 5 values
+    SELECT * FROM person OFFSET 7 LIMIT 5; (or) SELECT * FROM person OFFSET 7 FETCH FIRST 5 ROW ONLY;
+// prints from 8 to 12
+-------------------------------------------
+(8.)SELECT * FROM person WHERE country='Brazil' OR country='China' OR country='USA';
+                               (or)
+    SELECT * FROM person WHERE country IN ('Brazil','China','USA');
+----------------------------------------------
+(9.)SELECT * FROM person WHERE dob BETWEEN DATE '2001-1-1' AND '2009-1-1';
+----------------------------------------------
+(10.)SELECT * FROM person WHERE email LIKE '%.com';
+    //All emails that end with .com is listed below
+     SELECT * FROM person WHERE email LIKE '_____google';
+   // All emails that has 5 letters followed by google is listed  below
+----------------------------------------------------
+(11.)SELECT country, COUNT(*) FROM person GROUP BY country ORDER BY country;
+   //It shows no of people in each country in ascending order
+     SELECT country, COUNT(*) FROM person GROUP BY country HAVING COUNT(*) >10 ORDER BY country;
+   ///It shows country with no of people more than 10
+------------------------------------------------------
+(12.) SELECT MAX(price)/MIN(price) FROM car; 
+      SELECT SUM(price) FROM car;
+      SELECT ROUND(AVG(price)) FROM car;
+      SELECT make, MIN(price) FROM car GROUP BY make;
+      SELECT id,make,model,price as originalprice, ROUND(price * .10,2), ROUND(price - (price * .10) as discounted price FROM car;
+                                  // multiply price*10 and round to 2 decimals // Subtract price - discounted value
+----------------------------------------------------------
+(13.)SELECT COALESCE(email,'Email not provided') FROM person;
+-------------------------------------------------------------
+(14.)SELECT NOW();      //2023-3-10 10:34:22
+     SELECT NOW()::DATE;//2023-3-10
+     SELECT NOW()::TIME;//10:34:22
+------------------------------------------------------------
+(15.)ALTER TABLE person ADD PRIMARY KEY(id);
+    //column where we need to make primary key should be unique in every single row
+-------------------------------------------------
+(16.)DELETE FROM person WHERE gender='Male';
+     UPDATE person SET email = 'anush@gmail.com' WHERE id = 201;
+     UPDATE person SET first_name = 'Roshan', last_name='Maholtra', email='roshan@gmail.com' WHERE id = 105;
+-------------------------------------------------------------
+(17.)ON CONFLICT (id) DO NOTHING;
+     //When id of 2 rows are same conflict arise & by applying this command we can fix it
+----------------------------------------------------------------
+JOINS:
+1.)INNER JOIN:
+Table 1: Employement table: 
+
+ID	STATE	RATE
+1	A	60
+2	B	70
+3	C	65
+4	D	80
+5	E	78
+
+Table 2: Department Table:
+
+ID	NAME	PERCENT
+1	IT	60
+2	SALES	75
+3	BANK	50
+
+SELECT “EMPLOYMENT”.“ID”, “EMPLOYMENT”.“STATE”, “DEPARTMENT”.“NAME”  
+FROM “EMPLOYMENT”   
+INNER JOIN “DEPARTMENT”  
+ON “EMPLOYMENT”.“ID” = “DEPARTMENT”.“ID”;
+
+OUTPUT:
+ID	STATE	NAME
+1	A	IT
+2	B	Sales
+3	C	Bank
+        
+
+  

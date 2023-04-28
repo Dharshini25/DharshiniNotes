@@ -1,0 +1,30 @@
+Build Systems:
+1.)Compile the code->Run test(Unit & Integration Test)->Package (Jar & War)->Deploy & Run
+All these tasks can be automated by gradle(Build Automation Tool)
+2.)Gradle uses convention over configuration
+3.)Gradle makes building & running applications very easy  
+
+Gradle:
+It uses Groovy/Kotlin languages inside the build.gradle files
+build.gradle
+->written in Groovy / Kotlin language
+->equivalent of Maven's pom.xml
+
+build.gradle(main build configuration file).It consists of plugins, metadata,dependencies,repositories
+1)Plugin:
+->war , jar , jacoco, bootrun(springboot)
+->additional build functionality 
+
+2)Metadata:
+->build metadata gives information about your build
+
+3)Repositories:
+->place where to find dependencies
+
+4)Dependencies:
+->dependencies or artifacts that are required to run a project
+
+In windows:->gradlew.bat build
+name of the project->settings.gradle
+->task represent the unit of work-> and are linked through tha task group
+->you can run the task using gradle wrapper script

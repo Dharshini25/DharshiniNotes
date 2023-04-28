@@ -1,0 +1,33 @@
+
+Here are some points of Research to start with just for context. Any questions you have on these topics, you can ask me directly and I will explain. 
+
+General Topics/ Keywords:
+-	Carbon Emission : Emission amounts in different sectors, how emission differs in different countries
+-	Carbon Credit : Value of 1 carbon credit, what it means, how carbon credits work
+-	Carbon Emission in IT : Which parts of IT contribute to carbon emission, Carbon emission in Networks and User Devices
+-	Sustainability in IT / Green IT : In detail what Sustainability is in IT, Organizations with Green IT initiatives
+-	Sustainable Web Design
+-	Lighthouse: Open source tool, check out what it does, how it works
+
+Also please go through this repository and what the Green Software Foundation is doing right now
+https://github.com/Green-Software-Foundation/sci/blob/main/Software_Carbon_Intensity/Software_Carbon_Intensity_Specification.md
+
+
+After reading these topics, you will have more context on what CARE-IT is doing and what we are going to do. From next week, I will host a standup call every day and we can talk about your learnings and what’s next. Don’t take too much pressure and how much time you need for this research is completely up to you. Quality of the research is very important, sources need to be documented. Reach out to me for anything at all .
+
+CARBON CREDIT:
+permits that allow the owner to emit a certain amount of carbon dioxide or other greenhouse gases
+
+
+
+Sustainability in IT:(Green IT / Green Computing)
+
+->means to reduce the negative/harmful imapct on environment throgh IT operations
+->production of a single laptop, 316 kg of CO₂ emissions 
+  190,000 litres is used for just one laptop.
+  1,200 kg of the Earth’s resources
+->Sustainable manufacturing means making products in a way that does not harm the environment.
+->Migrating to the cloud is a great way for businesses to transform their IT into green IT. By moving on-premise applications and document storage to the cloud, businesses can significantly reduce their direct energy consumption and carbon emissions.
+->What is carbon footprint in IT industry?
+->A digital carbon footprint is the CO2 emissions resulting from the production, use and data transfer of digital devices and infrastructure. In an increasingly digital world, our day to day lives have transformed with the use of technology.
+

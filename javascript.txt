@@ -1,0 +1,176 @@
+->Every time u use a variable use let num=4, let name="Navin"
+->while declaring a variable name $ and _ is allowed
+->variable name should not start with numbers
+->for running a js.file in vscode use node filename.js
+->const pi=3.14 therefore the value of pi will not chnage
+->typeof variablename - showsthe datatype 
+->To comment in javascript it is (control + /)
+->Javascript is case sensitive but not whitespace sensitive
+
+TO GO BACK TO PREVIOUS PAGE
+
+1.)Create a folder named Lesson-1
+2.)Inside it create an another folder named pages
+So this folder pages should contain two html pages(page1.html & page2.html)
+page1.html
+<body>
+   <a href="../index.html">Back</a> //means it comes out of the folder pages and goes directly to index.html file which is present under the same Folder Lesson-1
+    <h1>
+        Page One
+    </h1>
+</body>
+3.)Inside the same folder Lesson-1 create a file namded index.html 
+  And the index.html file consists 
+  <a href="pages/page2.html">Page One</a> |
+  <a href="pages/page2.html">Page Two</a>
+  
+
+1)Type conversion
+Eg:  let x="123"
+  console.log(x,typeof x);//123 string
+Eg:  let y=Number("123")
+  console.log.(y,typeof y);//123 number
+Eg:  let x=Number("123 Navin")
+  console.log(x);//NAN(not a number)
+Eg:  let x=parseInt("123 Navin")
+  console.log(x,typeof x);//123 Number
+Eg:  x=8
+     x=x + ""
+  console.log(x,typeof x);//8 string(number + string =>string)
+Eg: x=x-2
+  console.log(x,typeof x);//6 number(string - number=>number)
+Eg:console.log(Boolean(7));//true;
+   console.log(Boolean(-7));//true;
+   console.log(Boolean(-0));//false;
+   console.log(Boolean(null));//false;
+   console.log(Boolean(undefined));//false;
+  console.log(Boolean("Navin"));//true;
+
+2)var name='Heloo world' 
+  var name="Hello world"
+
+3)a = 5
+  b = 10
+  if(a=b)
+{
+ the value of a will be 10
+}
+
+4)a = 5
+  b = '5'
+ if(a==b)
+{
+console.log('true');
+}
+else{
+console.log('false');
+}
+Answer:true
+
+5)a = 5
+  b = '5'
+ if(a===b)//it strictly checks whether it is true or false
+{
+console.log('true');
+}
+else{
+console.log('false');
+}
+Answer:false
+
+6)var a=5
+  var b=5
+  console.log(a+b)//10
+
+7)var a="5"
+  var b="5"
+  console.log(a+b)//55
+
+8)var a=5
+  var a="5"
+  console.log(a+b)//55
+
+9)var a=5
+  var a="5"
+  console.log(a*b)//Nan
+
+10)var a="55"
+   var myNumber=Number(a);//try to convert it into number
+
+11)if(isNaN(myNumber))
+{
+console.log("its not a number");
+}
+
+
+12)var myString="He said \"that\'s fine,\" and left.";
+   console.log(myString); 
+   //Ans:He said "that's fine," and left.
+     (So put \ before each and every quotes in javascript)
+
+13)<script>
+const fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
+const citrus = fruits.slice(1, 3);
+
+document.getElementById("demo").innerHTML = citrus;
+</script>
+
+14)var d=new Date(2001,01,05,0,0,0)
+   var today=new Date();
+   today.getFullYear();
+   today.getYear();
+   today.getMonth();
+   today.getDate();
+   today.getTime();
+   today.getHours();
+   today.setFullYear(2023);
+
+15)Creating Objects
+
+   var input='name'
+   var player1={ 
+         name: "Kani",
+         score: 10000,
+         rank: 1,
+         work_exp (or) 'work exp' : 4
+   }; 
+
+//to display the details
+console.log(player1.name)//Kani
+console.log(player1.score)//10000
+console.log(player1.rank)//1
+console.log(player1['work exp']);//4
+console.log(player1['input']);//Kani(the feild input is not present inside class alien)
+
+
+16)Functions:
+
+functions sample()
+{
+console.log("Hello World")
+}
+sample();
+
+Output:Hello World
+
+17)Functions & Return type:
+
+function sample()
+{
+return "Hi Dhars";
+}
+
+str=sample();
+console.log(str);
+
+Output:Hi Dhars
+
+18)function greetings(user)
+{
+    return `Hello ${user}`
+}
+var user="Siva";
+var str=greetings(user);
+console.log(str);
+
+Ouput:Hello Siva
