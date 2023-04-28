@@ -1,0 +1,524 @@
+1.COLLECTIONS
+2.LINKEDLIST 
+3.STACK 
+4.QUEUE 
+5.SEARCH ALGORITHMS(BFS,DFS,Linear,Binary) 
+6.SORT ALGORITHM - Important(Selection,Bubble,Quick,Merge)
+7.BINARY TREE
+8.HASH MAP
+9.TIME COMPLEXITY
+10.RECURSION PROGRAMMING
+Where to use which dsa?
+ non synchronized - not safe - data corruption
+ synchronized - safe
+
+--------------------------------------------------------
+ARRAYS:
+->Objects is array are to be allocated in specific heap memory
+->Strings are immutable in java
+->Arrays are mutable
+SYNTAX:
+datatype variable_name = new datatype[size];
+Eg 1 : int a = new int[10];
+( int a ->Compile time
+  new int[10]->In Run time memory is allocated so Dynamic memory allocation  )
+  a[0]=0
+
+Eg 2 : String arr[] = new String[5];
+  arr[0]=null
+------------------------------------------------------------
+LINKED LIST:
+
+Head-1st element in LL
+Tail-last element in LL
+(1.)Representation of each & every box in LL:
+class Node
+{
+int value;
+Node next;
+}
+
+ (2.)Insertion in Linked List
+(a) At Beginning: 
+
+public void insertatbeginning(int val)
+{
+  Node node = new Node(val);// create a new node
+  node.next = head;
+  node = head;
+
+  if(tail==null)
+  {
+   tail = head;
+  }
+}
+
+(3.)Displaying elements:
+
+public void display()
+{
+Node temp = head; //creating a temp variable(Node datatype) to display elements
+while( temp != null)
+{ 
+  System.out.println(temp.value+ " ");
+  temp = temp.next;
+}
+
+}
+
+(4.)Insertion:
+(a.)At Last:
+
+public void insertatlast(int value)
+{
+  if (tail == null)
+  {
+    insertatbeginning(value);
+  }
+  Node node = new node(value);
+  tail.next = node;
+  tail = node;
+}
+
+(b.)At Middle:
+
+public void insertatmiddle(int value ,int index)
+{
+  if(index == 0)
+  {
+     insertatbeginning(value);
+     return ;
+  }
+  if(index == size)
+  {
+     insertatlast(int value);
+     return ;
+  }
+  
+  Node temp = head;// iterating from head
+  for( int i=1;i<index;i++) // if the index is 3 then u need to go until 2
+  {
+    temp = temp.next;
+  }
+  Node node = new node (value,temp.next);// creating a node, insertion of value , next link
+  temp.next = node;
+  size ++;
+}
+} 
+
+(5.)Deleting elements:
+
+(a.)Deleteatfirst:
+
+public void deleteatfirst()
+{
+ int value = head.value;
+ head = head.next;
+ if( head == null)
+ { 
+   tail = null;
+ }
+ size --;
+}
+
+(b.)DeleteatLast
+
+public int deleteatlast()
+{
+ if(size <= 1)
+ {
+  return deleteatfirst();
+ }
+
+ Node secondlast = get(size - 2)
+ int val = tail.value;
+ tail = secondLast;
+ tail.next = null; 
+ return value;
+}
+
+(6.) To find a value and that particular index 
+public Node find(int value)
+{
+ Node node = head;
+ while (node!=null)
+ {
+  if(node.value == value)
+  {
+    return node;
+  }
+  node = node.next;
+ }
+ return node;
+}
+
+public Node get(int index)
+{
+Node node = head;
+for(int i=0;i<index;i++)
+{
+node = node.next;
+}
+return node;
+}   
+
+-----------------------------------------------------------------------------------------
+DOUBLY LINKED LIST:
+
+class Node
+{
+int value;
+Node next;
+Node prev;
+}
+
+(1.)Insertion:
+ (a.)At first:
+
+public void insertatfirst(int value)
+{
+ Node node = new node(value);
+ node.prev = null;
+ node.next = head;
+ if(head != null)
+ {
+ head.prev=node;
+ }
+ head = node;
+}
+
+(2.)Display
+
+public void display()
+{
+ Node node = head;
+ while(node != null)
+ {
+   System.out.println(node.value +" ");
+   node = node.next;
+ }
+}
+
+(3.)Reverse:
+
+public void reverse()
+{
+ Node node = head;
+ Node last = null;
+ while (node != null)
+ {
+   System.out.println(node.value +" ");// Forward printing
+   last = node;
+   node = node.next;
+ }
+ while(last != null)
+ {
+  System.out.println(last.value +" ");
+  last = last.prev;
+ }
+} 
+
+(4.)Insertion:
+
+public void insertatlast(int value)
+{
+ Node node = new node(value);
+ Node last = head;
+ node.next = null;
+   
+ if(head == null)// when the head is null 
+ {
+   node.prev = null;
+   head = node;
+   return;
+ }
+
+ while(last.next != null)
+ {
+ last = last.next;
+ }
+ 
+ last.next = node;
+ node.prev = last;
+
+}
+ 
+CIRCULAR LINKED LIST:
+   
+class Node
+{
+int value;
+Node next;
+}
+
+(1.)INSERTION:
+
+public void insert(int value)
+{
+    Node node = new node(value);
+    if(head == null)
+    {
+        head = node;
+        tail = node;
+        return ;
+    }
+
+    tail.next=node;
+    node.next=head;
+    tail=node;
+}
+
+(2.)DISPLAY:
+public void display()
+{
+    Node node = head;
+    if(node != null)
+    {
+    do{
+        System.out.println(node.value + "->");
+        node = node.next;
+    }while(node!=head);
+}
+}
+
+(3.)Delete:
+ 
+
+STACK:
+->FILO - First In Last Out
+  LIFO - Last In First Out
+->Stack is a class in java
+
+Stack<Integer> st = new Stack<Integer>();
+        st.push(2);
+        st.push(4);
+        st.push(6);
+        st.push(8);
+        System.out.println(st.pop());//8
+        System.out.println(st.pop());//6
+
+
+QUEUE:
+
+->FIFO - First In First Out
+  LILO - Last In Last Out
+->Queue is not a class it is an interface
+
+Queue<Integer> qu = new LinkedList<Integer>();
+	qu.add(3);
+        qu.add(14);
+        qu.add(99);
+        qu.add(50);
+        System.out.println(qu.peek());//3
+   	System.out.println(qu.remove());//3
+        System.out.println(qu.peek());//14
+--------------------------------------------------------------------
+public class CustomStack
+{
+protected int[] data;
+private static final int DEFAULT_SIZE=10;
+
+int ptr = -1;
+
+public CustomStack()
+{
+this(DEFAULT_SIZE);
+}
+
+public CustomStack(int size)
+{
+this.data = new int[size];
+} 
+
+public boolean push(int item)
+{
+    if(isFull())
+    {
+        System.out.println("Stack is Full");
+        return false;
+    }
+    ptr++;
+    data[ptr] = item;
+    return true;
+}
+
+public int pop() throws StackException
+{
+    if (isEmpty())
+    {
+        throw new StackException("Cannot pop from empty stack");
+    }
+    //int removed = data[ptr];
+    //ptr--;
+    //return removed;
+    return data[ptr--];
+}
+
+public int peek() throws StackException
+{
+    if (isEmpty())
+    {
+        throw new StackException("Cannot peek from empty stack");
+    }
+    return data[ptr];
+}
+private boolean isFull()
+{
+    return ptr == data.length - 1;
+}
+
+private boolean isEmpty()
+{
+    return ptr =-1;
+}
+}
+
+-----------------------------------------------------------------------
+TREE:
+
+1.)Leaf Node->doesn't have a child
+2.)If there are n nodes, then there would n-1 edges. 
+3.)The depth of node x can also be defined as the number of edges between the root node and the node x.
+   The root node has 0 depth.
+4.)Height of node x: The height of node x can be defined as the longest path from the node x to the leaf node.
+5.)Path − Path refers to sequence of nodes along the edges of a tree.
+
+
+Pre-order: root, left, right
+In-order: left, root, right
+Post-order: left, right, root
+
+--------------------------------------------------------------------------
+Selection Sort:
+
+64->25->12->22->11
+
+1st)11->25->12->22->64
+2nd)11->12->25->22->64
+3rd)11->12->22->25->64
+
+import java.io.*;
+public class SelectionSort
+{
+    void sort(int arr[])
+    {
+        int n = arr.length;
+ 
+        // One by one move boundary of unsorted subarray
+        for (int i = 0; i < n-1; i++)
+        {
+            // Find the minimum element in unsorted array
+            int min_idx = i;
+            for (int j = i+1; j < n; j++)
+                if (arr[j] < arr[min_idx])
+                    min_idx = j;
+ 
+            // Swap the found minimum element with the first
+            // element
+            int temp = arr[min_idx];
+	    arr[min_idx] = arr[i];
+            arr[i] = temp;
+        }
+    }
+// Prints the array
+    void printArray(int arr[])
+    {
+        int n = arr.length;
+        for (int i=0; i<n; ++i)
+            System.out.print(arr[i]+" ");
+        System.out.println();
+    }
+ 
+    // Driver code to test above
+    public static void main(String args[])
+    {
+        SelectionSort ob = new SelectionSort();
+        int arr[] = {64,25,12,22,11};
+        ob.sort(arr);
+        System.out.println("Sorted array");
+        ob.printArray(arr);
+    }
+}
+---------------------------------------------
+
+
+-------------------------------------------------------------------------
+MERGE SORT:
+->dividing an array into smaller subarrays, sorting each subarray, and then merging the sorted subarrays back together to form the final sorted array.
+
+1st)38,27,43,3,9,82,10
+
+2nd)38,27,43,3   ||  9,82,10
+
+3rd)38,27 || 43,3
+
+4th)38 || 27
+
+5th)27 || 38
+
+6th)        43 || 3
+
+7th)         3|| 43
+from (5th & 7th)
+8th)3,27,38,43
+from (2nd)
+9th)9,82 || 10
+
+10th)9 || 82
+from(9th &10th)
+11th)9,10,82
+from(8th & 11th)
+12th)3,9,10,27,38,43,82
+
+----------------------------------------------------
+
+Bubble Sort:
+
+works by repeatedly swapping the adjacent elements if they are in the wrong order.
+worst bcoz of high time complexity
+
+arr[] = {5, 1, 4, 2, 8}
+
+1st){1,5,4,2,8}
+2nd){1,4,5,2,8}
+3rd){1,4,2,5,8}
+
+1st){1,4,2,5,8}
+2nd){1,2,4,5,8}
+
+import java.util.*;
+ 
+class BubbleSort {
+    void bubbleSort(int arr[])
+    {
+        int n = arr.length;
+        for (int i = 0; i < n - 1; i++)
+            for (int j = 0; j < n - i - 1; j++)
+                if (arr[j] > arr[j + 1]) {
+                    // swap arr[j+1] and arr[j]
+                    int temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+    }
+void printArray(int arr[])
+    {
+        int n = arr.length;
+        for (int i = 0; i < n; ++i)
+            System.out.print(arr[i] + " ");
+        System.out.println();
+    }
+ 
+    // Driver method to test above
+    public static void main(String args[])
+    {
+        BubbleSort ob = new BubbleSort();
+        int arr[] = { 5, 1, 4, 2, 8 };
+        ob.bubbleSort(arr);
+        System.out.println("Sorted array");
+        ob.printArray(arr);
+    }
+}
+
+----------------------------------------------------------
+
