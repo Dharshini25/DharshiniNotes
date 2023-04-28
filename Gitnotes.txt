@@ -1,0 +1,202 @@
+
+1)GIT RESPOSITORY: directory/storage space for store files,images and name it
+  CREATE REPOSITORY: git init
+  MAKING CHANGES: git status,git add, git commit -m "Message"
+  PARALLEL DEVELOPMENT: git merge,rebase,branch
+  SYNCING REPOSITORIES: git add originpush,pull
+
+1)GIT & GITHUB
+=>Git Bash is case sensitive
+=>mkdir ...make directory,creates directory
+=>cd ...changes directory
+=>ls ...lists the contents inside directory
+=>vi...it is used to open and edit a file
+=>git init.. initialize empty git folder
+//DSOCRAT@CGSCLXR82230133 MINGW64 ~(for setting username)
+$ git config --global user.name "dharshini"
+
+//DSOCRAT@CGSCLXR82230133 MINGW64 ~(for setting email)
+$ git config --global user.email "dharshini.1905018@srec.ac.in"
+=>pwd ...current working directory
+=>whoami ...
+=>touch filename...
+   If you use the touch command without any options, it will simply create a new empty file. 
+   If the file already exists, the touch command will update the access and modification times to the current time without changing the file contents.
+=>git add filename
+  
+2)To add files from local repo to remote repo:
+=> touch filename
+=> ls
+=> git add filename
+=> git status...it would show as no commit yet
+=> git commit -m "First commit"
+=> git status...On branch master
+   Now you need to set origin
+=> git init
+=> git commit -m "firstcommmit"
+=> git remote add origin (copy and paste the repository link created in github)
+=> git push -u origin master/main
+   //the origin is the default name assigned to a Git remote repository; 
+     however, the master is a Git branch name.
+=> git remote set-url- origin (c&p)
+=> git remote -v // to find the urls present in 
+=> git push origin master
+=> git status
+   Now both local & remote repo are linked
+
+3)DISTRIBUTED VERSION CONTROL SYSTEM:
+=> For one file there are multiple version, starting from source code to current code
+=> Providers/Vendors:Ex of vcs is git,microsoft provides TFS,mercurial,svn
+=> Github company's project link -->Folder-->called remote repository
+=> In our laptop(folder)-->need to move to remote repository
+
+4)GIT COMMANDS:
+=> git --version
+
+1)When to have multiple files & when u need to access one file
+=> cd path 
+=> git init
+=> git add filename.withextension
+=> git commit -m "Update my code"
+2)Fork:
+=>when we need take companys source code and copy in our device and futher we can modify it
+
+3)To move our file to remote repository -->create a remote repository
+=> git remote ad origin .txt
+=> git push -u origin master
+   //Then it asks username:created remote repository & password
+
+4)When the teamlead/manager has changed/edited our code in remote repository-->he use commit changes
+=> git add filename.withextension
+=> git commit -m 'What we have done in short words'
+=> git push -u origin master 
+    //means you will get error saying that ur local repository is not matched with ur remote repository and ur manager has made some changes
+    //so u need to "pull" first
+=> git pull
+    //then it shows like merge conflicts
+=> git add filename
+=> git commit -m '...'
+=> git push -u origin master
+
+5) local repository  to remote repository means=> Push
+   remote repository to local repository meams=> Pull
+   for adding more files=> git add .
+   git status=> to see what we have done, to see commit changes done
+   git log=> history of commits
+
+6)In local repository there are about 2 files(one is master copy, another is branch from it)
+=> git checkout -b 'myworkings'
+=> git add filename(operators.txt)
+=> git commit -m 'change which has been done'
+=> git push -u origin myworkings
+    //then it asks username & password
+   //now inside operators.txt our file will be there
+  //there are two branches 1st.master & 2nd.operators
+=>git checkout master
+  //to go make to master--to switch to other branch
+
+7)to create an other branch
+=> git checkout -b 'newbranch'
+
+8)To create a local repository file:
+  Go to C drive->create a new folder->Go inside the folder and right click and open git bash
+=>  git init
+   Hence by this way a local repository is created in our system
+=> git remote add origin "(c&p link)"
+   To create a remote repository as origin
+=> git pull origin main(the branch from where you need to pull)
+   Perform git pull to fetch all files from central repo to local repo 
+   git pull initially is very much necessary to be updated with all changes done in the project(remote repo)
+
+9)Create a file in the folder which u created previously
+=>git status
+=>git add filename
+=>git add -A..incase you need all files
+=>git commit -a -m ""...commit all changes
+
+10)
+Step-1:To create branch
+=>git branch firstbranch(branchname)
+Step-2:For moving/switching from one branch to another
+=>git checkout firstbranch(branchname)
+///=>escape , colon(:), x
+Step-3:Adding a file
+=>git add finename(file4.txt)
+Step-4:Changes in 1st branch using commit
+=>git commit -m "making changes in 1stbranch"
+Step-5:Listing out the files in 1stbranch
+=>ls
+readme.MD,file1.txt, file2.txt,file3.txt,file4.txt
+Step-6:For moving/switching to master branch 
+=>git checkout master
+Step-7:Listing out the files in master branch
+=>ls
+file1.txt,file2.txt,file3.txt
+Step-8:Merging masterbranch and 1stbranch
+=>git merge firstbranch
+Step-9:Listing the files in masterbranch
+=>ls
+readme.MD,file1.txt, file2.txt,file3.txt,file4.txt
+
+11)When you want to go to 1stbranch and make changes...it wont affect your master branch unless untill it is merged
+=>git checkout 1stbranch
+make changes in file4
+=>git commit -a -m "Changes"
+=> cat file4.txt
+// cat command displays the changes made
+//demo4 Hi hello
+=>git checkout master
+=>cat file4.txt
+//demo4
+
+12)For generating SSH key:
+=> ssh-keygen
+   (y/n)..y->enter->enter..>key will be generated
+=> cat /c/User(path)
+    will see public ssh key
+    when u need to add public ssh key
+    go to github account->settings->SSH & GPG keys->New SSH key-> provide titlename->c & p the key->Add ssh key
+=> ssh -T git@github.com
+    go to git hub account hit refresh
+
+13)When you dont want ur changes 
+=>git checkout firstbranch
+=>git push origin firstbranch
+  Now when u refresh in git->inside firstbranch->the file1,2,3,4 will be there
+ 
+When u want to push changes in master(so that local repo got add into remote/cenrr
+=>git checkout master
+=>git push origin master
+  Now when u refresh in git->inside master->the file1,2,3,4 will be there
+
+When u want to return to previous commits
+=>git log
+=>git checkout hexadecimalvalue(of that specific commit) filename
+=>cat filename
+
+12)git fetch...just downloads the file from remote repo to local(changes are not made)
+   git pull...is a combination of git fetch + git merge(changes are made)
+   rebase...way of combining the work between different branches
+
+Creating a new repo: 
+=>git remote add reponame url
+=>git remote  remove reponame
+
+=>git init
+=>git 
+
+
+----------------------------------------------------------
+=>git clone..repo open(clone) 
+=>git commit ...changes will be there in local repo..unless & until git push is done
+=> any repo has a main/master branch(latest version of application)
+=> fork(main to local) the branch and clone it ...repo close (fork )
+=>Pull request happens from local to main..manager accepts/rejects
+------------------------
+1)create your own repo within github id, clone repo, make changes, add multiple files,commit, push,,gon  back 
+2)create mul branches within repo ...clone only that branch...
+3)fork owner,send pull request,(accept/decline),view changes
+4)sql,postgres
+
+
+
