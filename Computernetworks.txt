@@ -1,0 +1,41 @@
+Computer Networks:
+
+Loadbalancing:
+-> distribute network traffic over multiple servers
+-> to ensure no single server is overwhemled by traffic
+
+CDN(Content Delivery Network):
+-> network of servers that are geographically distributed - that work together to deliver web content to     users
+-> CDN servers can help to handle heavy traffic loads
+-> popular CDN providers include Akamai, Cloudflare, and Amazon CloudFront.
+
+DNS(Domain Name System):
+->It translates human-friendly domain names into IP addresses that machines can understand.
+->When you enter a domain name into your web browser - computer sends a request to a DNS         resolver - searches for the IP address associated with that domain name - sends that information     back to your computer - this helps us to connect to the correct server
+
+SSL(Secure Socket Layer):
+->security protocol - used to establish an encrypted connection between a web server and a web    browser.
+->to protect sensitive information - such as login credentials, credit card numbers, and personal data       - from being intercepted by third parties while in transit over the internet.
+
+Layers of OSI Model:
+1) Physical Layer:
+     -> physical aspects of network communication, such as electrical, mechanical, and timing interfaces.
+     -> physical characteristics of the transmission medium, such as cable types, connector types, and transmission rates.
+2) Data Link Layer: 
+     -> framing data into packets, detecting errors, and retransmitting lost or damaged packets.
+     -> Examples of data link layer protocols include Ethernet and Wi-Fi.
+3) Network Layer:
+     ->  Routing data packets between devices on different networks.
+     ->  The Internet Protocol (IP) is an example of a network layer protocol.
+4) Transport Layer:
+     ->  provides end-to-end communication between devices on a network.
+     ->  reliable delivery of data by providing error detection, flow control, and congestion control           mechanisms.
+     ->  TCP(transfer) & UDP(user datagram) are examples of transport layer protocols.
+5) Session Layer:
+     -> provides services such as session synchronization and recovery in case of interruptions.
+6) Presentation Layer:
+     -> provides a standardized format for data exchange between applications
+     -> performs data compression, encryption, and decryption to ensure that data can be transmitted          and  received in a usable format.
+7) Application Layer:
+     ->  provides services directly to end-users. 
+     ->  application protocols such as HTTP, FTP, SMTP, and Telnet,
